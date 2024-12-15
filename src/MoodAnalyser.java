@@ -22,10 +22,14 @@ public class MoodAnalyser {
 
     // Analyse mood based on the message field
     public String analyseMood() {
-        if (message != null && message.toLowerCase().contains("sad")) {
-            return "SAD";
-        } else {
-            return "HAPPY";
+        try {
+            if (message != null && message.toLowerCase().contains("sad")) {
+                return "SAD";
+            } else {
+                return "HAPPY";
+            }
+        } catch (Exception e) {
+            return "HAPPY"; // Default to HAPPY in case of exceptions
         }
     }
 }
